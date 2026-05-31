@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+:root {
+    --bg-color: #0f172a;
+    --container-bg: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+    --accent: #8b5cf6;
+    --danger: #ef4444;
+    --danger-bg: rgba(239, 68, 68, 0.1);
+    --success: #10b981;
+    --success-bg: rgba(16, 185, 129, 0.1);
+    --card-border: #334155;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+    background: var(--container-bg);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(59, 130, 246, 0.1);
+    border: 1px solid var(--card-border);
+    overflow: hidden;
+}
+
+/* Transições de Telas */
+.screen {
+    display: none;
+    animation: fadeIn 0.4s ease-out forwards;
+}
+.screen.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Cabeçalhos */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+h1 {
+    color: var(--primary);
+    margin-bottom: 10px;
+    font-size: 2.2rem;
+    text-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+}
+h2 {
+    color: var(--accent);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--card-border);
+    padding-bottom: 10px;
+}
+p {
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* NOVO: Links Extras Tela Inicial */
+.extra-links-box {
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px dashed var(--card-border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 35px;
+    text-align: center;
+}
+.extra-links-box h3 {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.links-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+.links-grid a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+}
+
+/* Grid de Personas */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.card {
+    background: #0f172a;
+    border: 2px solid var(--card-border);
+    border-radius: 12px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+.card h3 {
+    color: #e2e8f0;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+.card p {
+    font-size: 0.9rem;
+}
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.2);
+}
+
+/* Informações da Análise */
+.info-card {
+    background: #0f172a;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--primary);
+}
+.info-card strong {
+    color: #e2e8f0;
+}
+
+/* Caixa de Malefícios */
+.maleficios-box {
+    background: var(--danger-bg);
+    border: 1px solid var(--danger);
+    padding: 20px;
+    border-radius: 12px;
+    margin: 25px 0;
+}
+.maleficios-box h3 {
+    color: var(--danger);
+    margin-bottom: 15px;
+}
+.maleficios-box ul {
+    list-style-type: none;
+}
+.maleficios-box li {
+    margin-bottom: 12px;
+    padding-left: 25px;
+    position: relative;
+    color: #f8fafc;
+}
+.maleficios-box li::before {
+    content: "✖";
+    color: var(--danger);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Botões */
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex: 1;
+}
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+}
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+}
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-muted);
+    border: 2px solid var(--card-border);
+}
+.btn-secondary:hover {
+    background-color: var(--card-border);
+    color: white;
+}
+
+/* Quiz */
+.question {
+    font-size: 1.2rem;
+    color: #e2e8f0;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+.options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.quiz-option {
+    background: #0f172a;
+    color: #e2e8f0;
+    border: 2px solid var(--card-border);
+    padding: 16px;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.quiz-option:hover:not(:disabled) {
+    background: var(--card-border);
+    border-color: var(--primary);
+}
+.quiz-option:disabled {
+    cursor: not-allowed;
+}
+.quiz-option.correct {
+    background: var(--success-bg);
+    border-color: var(--success);
+    color: var(--success);
+}
+.quiz-option.wrong {
+    background: var(--danger-bg);
+    border-color: var(--danger);
+    color: var(--danger);
+}
+
+.feedback-message {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    min-height: 24px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Formulário de Avaliação */
+.evaluation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 25px;
+    text-align: left;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.form-group label {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid var(--card-border);
+    background-color: #0f172a;
+    color: #e2e8f0;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s;
+    resize: vertical;
+}
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+}
+
+/* Lembrete de Personas no Formulário */
+.personas-reminder {
+    background: rgba(15, 23, 42, 0.6);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px dashed var(--card-border);
+    margin: 25px 0;
+}
+.personas-reminder h3 {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.mini-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+}
+.mini-card {
+    background: var(--container-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 0.85rem;
+}
+.mini-card h4 {
+    color: var(--primary);
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+}
+.mini-card p.titulo {
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 6px;
+    font-size: 0.8rem;
+}
+.mini-card p.desc {
+    color: var(--text-muted);
+    line-height: 1.4;
+    font-size: 0.75rem;
+}

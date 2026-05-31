@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab de Algoritmos | Análise de Personas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <div id="screen-selection" class="screen active">
+        <header>
+            <h1>⚙️ Análise de Impacto Algorítmico</h1>
+            <p>Selecione um perfil de usuário no sistema para analisar os danos causados pelo uso excessivo de telas e algoritmos predatórios.</p>
+        </header>
+
+        <div class="extra-links-box">
+            <h3>🔗 Recursos e Atividades da Aula</h3>
+            <div class="links-grid">
+                <a href="https://milenamainardes.github.io/Simulador_feed/" target="_blank" class="btn btn-primary" style="background-color: var(--accent);">📱 Testar Simulador de Feed</a>
+                <a href="https://forms.gle/95BeCuTbo5AACxp1A" target="_blank" class="btn btn-secondary">🌙 Pesquisa de Sono</a>
+                <a href="https://forms.gle/SZ43TkYjhaTH8wNn6" target="_blank" class="btn btn-secondary">🎓 Pesquisa Pós-Aula</a>
+            </div>
+        </div>
+
+        <h3 style="color: var(--text-main); margin-bottom: 15px; font-size: 1.2rem; border-bottom: 1px solid var(--card-border); padding-bottom: 10px;">Selecione um Estudo de Caso para o Diagnóstico:</h3>
+        <div class="grid" id="persona-grid"></div>
+    </div>
+
+    <div id="screen-analysis" class="screen">
+        <div class="profile-header">
+            <h2 id="analise-nome"></h2>
+        </div>
+        
+        <div class="info-card">
+            <p><strong>📱 Padrão de Uso:</strong> <span id="analise-padrao"></span></p>
+        </div>
+        <div class="info-card">
+            <p><strong>🤖 Ação do Algoritmo:</strong> <span id="analise-algoritmo"></span></p>
+        </div>
+        
+        <div class="maleficios-box">
+            <h3>⚠️ Relatório de Sintomas</h3>
+            <ul id="analise-maleficios"></ul>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-secondary" id="btn-voltar-analise">⬅ Voltar</button>
+            <button class="btn btn-primary" id="btn-iniciar-quiz">Iniciar Diagnóstico ➡</button>
+        </div>
+    </div>
+
+    <div id="screen-quiz" class="screen">
+        <h2>🧠 Diagnóstico do Caso</h2>
+        <div class="quiz-container">
+            <p id="pergunta-texto" class="question"></p>
+            <div id="opcoes-container" class="options-grid"></div>
+        </div>
+        
+        <div id="feedback" class="feedback-message"></div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-secondary hidden" id="btn-voltar-fim">Analisar Outro Caso</button>
+            <button class="btn btn-primary hidden" id="btn-ir-form">Preencher Relatório Final 📝</button>
+        </div>
+    </div>
+
+    <div id="screen-form" class="screen">
+        <h2>📝 Relatório de Avaliação</h2>
+        <p>Preencha os dados abaixo com base no que você aprendeu com os estudos de caso. Suas respostas serão enviadas diretamente para avaliação.</p>
+        
+        <div class="personas-reminder">
+            <h3>💡 Lembrete Rápido dos Casos:</h3>
+            <div class="grid mini-grid" id="reminder-grid"></div>
+        </div>
+        
+        <form id="my-form" action="https://formspree.io/f/xykvqgzw" method="POST" class="evaluation-form">
+            
+            <div class="form-group">
+                <label for="nome-aluno">Nome Completo do Aluno:</label>
+                <input type="text" id="nome-aluno" name="Nome_do_Aluno" required placeholder="Digite seu nome completo">
+            </div>
+
+            <div class="form-group">
+                <label for="q1">1. Qual das personas você acha que mais reflete a realidade dos jovens hoje e por quê?</label>
+                <textarea id="q1" name="Pergunta_1_Persona_Realidade" rows="3" required placeholder="Sua resposta..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="q2">2. Explique com suas palavras como ferramentas como o "Scroll Infinito" ou o "Autoplay" afetam o sistema de recompensa (dopamina) do cérebro.</label>
+                <textarea id="q2" name="Pergunta_2_Dopamina" rows="3" required placeholder="Sua resposta..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="q3">3. Cite duas atitudes práticas que você poderia adotar na sua rotina para evitar os danos causados por esses algoritmos.</label>
+                <textarea id="q3" name="Pergunta_3_Solucoes" rows="3" required placeholder="Sua resposta..."></textarea>
+            </div>
+
+            <div class="action-buttons">
+                <button type="button" class="btn btn-secondary" id="btn-voltar-do-form">⬅ Voltar ao Diagnóstico</button>
+                <button type="submit" class="btn btn-primary" id="btn-submit-form">Enviar Relatório ✉️</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="screen-success" class="screen" style="text-align: center;">
+        <h2 style="color: var(--success); font-size: 2.2rem; border-bottom: none;">✅ Relatório Enviado!</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 30px;">Obrigado por participar da atividade. Suas respostas foram registradas com sucesso.</p>
+        
+        <div class="maleficios-box" style="background: rgba(30, 41, 59, 0.8); border-color: var(--card-border); text-align: center;">
+            <h3 style="color: var(--text-main); margin-bottom: 10px;">📋 Últimos Passos</h3>
+            <p style="color: var(--text-muted); margin-bottom: 25px;">Acesse os links abaixo para concluir sua participação na aula:</p>
+            
+            <div style="display: flex; flex-direction: column; gap: 15px; max-width: 400px; margin: 0 auto;">
+                <a href="https://milenamainardes.github.io/Simulador_feed/" target="_blank" class="btn btn-primary" style="text-decoration: none; display: block; background-color: var(--accent);">📱 Testar Simulador de Feed</a>
+                <a href="https://forms.gle/95BeCuTbo5AACxp1A" target="_blank" class="btn btn-secondary" style="text-decoration: none; display: block; border-color: var(--card-border); background: #0f172a;">1. Pesquisa de Sono 🌙</a>
+                <a href="https://forms.gle/SZ43TkYjhaTH8wNn6" target="_blank" class="btn btn-secondary" style="text-decoration: none; display: block; border-color: var(--card-border); background: #0f172a;">2. Pesquisa Pós-Aula 🎓</a>
+            </div>
+        </div>
+        
+        <div class="action-buttons" style="margin-top: 30px; justify-content: center;">
+            <button class="btn btn-secondary" id="btn-reiniciar-tudo" style="max-width: 250px;">Voltar ao Início do Software</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
